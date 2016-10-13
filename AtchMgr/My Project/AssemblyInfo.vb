@@ -1,7 +1,10 @@
-﻿Imports System
+﻿Imports System.Resources
+
+Imports System
 Imports System.Reflection
 Imports System.Runtime.InteropServices
 Imports System.Security
+<Assembly: NeutralResourcesLanguageAttribute("en-US")> 
 
 ' General Information about an assembly is controlled through the following 
 ' set of attributes. Change these attribute values to modify the information
@@ -11,7 +14,7 @@ Imports System.Security
 
 <Assembly: AssemblyTitle("Attachment Manager")> 
 <Assembly: AssemblyDescription("Automates archive and retrieval of email attachments")> 
-<Assembly: AssemblyCompany("Microsoft")> 
+<Assembly: AssemblyCompany("")> 
 <Assembly: AssemblyProduct("")> 
 <Assembly: AssemblyCopyright("Copyright © Brian Skinn 2016")> 
 <Assembly: AssemblyTrademark("")> 

@@ -78,9 +78,15 @@ Public Class UFAtchReatch
                     ' Reattach the editor
                     wd = mi.GetInspector.WordEditor
 
+                    ' This is purely to stop a VStudio complaint below. It *should* be safe, even if
+                    ' no hyperlinks are present in the MailItem, since this form should not be loaded
+                    ' by AtchMgr_Code.ReattachAttachments if there are no hyperlinks in the MailItem!
+                    hl = wd.Hyperlinks(1)
+
                     ' Appear to always need to reassign Hyperlink after attaching the file
                     ' Must re-search for the hyperlink in the document
                     foundHL = False
+
                     For iter2 = 1 To wd.Hyperlinks.Count
                         hl = wd.Hyperlinks(iter2)
                         If (InStr(lf.LinkAddress, hl.Address) > 0) And _
@@ -99,7 +105,7 @@ Public Class UFAtchReatch
                     Else
                         ' Block found; strip
                         ' Bind the whole paragraph
-                        wdRg = hl.Range.Paragraphs(1).Range
+                        wdRg = hl.Range.Paragraphs(1).Range ' It had been complaining here w/o the above line
 
                         ' Simplest way to delete paragraph content
                         wdRg.Text = ""

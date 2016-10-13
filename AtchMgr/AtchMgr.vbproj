@@ -35,16 +35,16 @@
     <PublishUrl>C:\Users\Lisa\Documents\Code\AtchHandling Publish\</PublishUrl>
     <InstallUrl />
     <TargetCulture>en</TargetCulture>
-    <ApplicationVersion>1.0.0.1</ApplicationVersion>
+    <ApplicationVersion>1.0.0.12</ApplicationVersion>
     <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>days</UpdateIntervalUnits>
-    <ProductName>AtchMgr</ProductName>
-    <PublisherName />
-    <SupportUrl />
-    <FriendlyName>AtchMgr</FriendlyName>
-    <OfficeApplicationDescription />
+    <ProductName>Attachment Manager</ProductName>
+    <PublisherName>Brian Skinn</PublisherName>
+    <SupportUrl>https://github.com/bskinn/outlook-atchmgr</SupportUrl>
+    <FriendlyName>Attachment Manager</FriendlyName>
+    <OfficeApplicationDescription>Attachment Manager automates handling of attached files. Both file detachment and re-attachment are supported. Files can be detached to any local or mapped drive, and a link to the detached file is inserted into the message. Any file on a local or mapped drive that is hyperlinked from an email opened for editing can be automatically re-attached.</OfficeApplicationDescription>
     <LoadBehavior>3</LoadBehavior>
   </PropertyGroup>
   <ItemGroup>
@@ -111,7 +111,9 @@
     <DocumentationFile>Attachment Manager.xml</DocumentationFile>
     <RegisterForComInterop>false</RegisterForComInterop>
     <RemoveIntegerChecks>false</RemoveIntegerChecks>
-    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
   </PropertyGroup>
   <!--
     This section defines properties that are set when the "Release" configuration is selected.
@@ -140,7 +142,9 @@
     <DocumentationFile>Attachment Manager.xml</DocumentationFile>
     <RegisterForComInterop>false</RegisterForComInterop>
     <RemoveIntegerChecks>false</RemoveIntegerChecks>
-    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
   </PropertyGroup>
   <!--
     This section specifies references for the project.
@@ -210,12 +214,22 @@
     <Compile Include="AtchMgr.vb">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="RibbonDetach.vb" />
+    <Compile Include="RibBtnDetach.Designer.vb">
+      <DependentUpon>RibBtnDetach.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RibBtnDetach.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UFAtchReatch.Designer.vb">
       <DependentUpon>UFAtchReatch.vb</DependentUpon>
     </Compile>
     <Compile Include="UFAtchReatch.vb">
       <SubType>Form</SubType>
     </Compile>
+    <EmbeddedResource Include="RibBtnDetach.resx">
+      <DependentUpon>RibBtnDetach.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UFAtchReatch.resx">
       <DependentUpon>UFAtchReatch.vb</DependentUpon>
     </EmbeddedResource>
@@ -241,6 +255,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="ClassDiagram1.cd" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
@@ -252,15 +267,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <COMReference Include="Microsoft.Office.Core">
-      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
-      <VersionMajor>2</VersionMajor>
-      <VersionMinor>7</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>primary</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
     <COMReference Include="Microsoft.Office.Interop.Word">
       <Guid>{00020905-0000-0000-C000-000000000046}</Guid>
       <VersionMajor>8</VersionMajor>
@@ -316,6 +322,9 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="RibbonDetach.xml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -348,7 +357,7 @@
       <FlavorProperties GUID="{BAA0C2D2-18E2-41B9-852F-F413020CAA33}">
         <ProjectProperties HostName="Outlook" HostPackage="{29A7B9D7-A7F1-4328-8EF0-6B2D1A56B2C1}" OfficeVersion="15.0" VstxVersion="4.0" ApplicationType="Outlook" Language="vb" TemplatesPath="" DebugInfoExeName="#Software\Microsoft\Office\15.0\Outlook\InstallRoot\Path#outlook.exe" AddItemTemplatesGuid="{5D898164-AEB5-470F-97BA-9253F022FD71}" />
         <Host Name="Outlook" PublishedHash="69C324AB27932AA2FBF2B7EA72250886FF164DE6" IconIndex="0">
-          <HostItem Name="ThisAddIn" Code="AtchMgr.vb" CanonicalName="AddIn" CanActivate="false" IconIndex="1" Blueprint="AtchMgr.Designer.xml" GeneratedCode="AtchMgr.Designer.vb" PublishedHash="11E6185E6807F0FEAAAF771F3780AA185F07DBA9" />
+          <HostItem Name="ThisAddIn" Code="AtchMgr.vb" CanonicalName="AddIn" PublishedHash="11E6185E6807F0FEAAAF771F3780AA185F07DBA9" CanActivate="false" IconIndex="1" Blueprint="AtchMgr.Designer.xml" GeneratedCode="AtchMgr.Designer.vb" />
         </Host>
       </FlavorProperties>
     </VisualStudio>

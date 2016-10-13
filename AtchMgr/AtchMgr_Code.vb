@@ -176,7 +176,7 @@ Module AtchMgr_Code
 
     End Sub
 
-    Sub DetachAttachment()
+    Public Sub DetachAttachment()
         Dim atch As Outlook.Attachment, atchSel As Outlook.AttachmentSelection
         Dim insp As Outlook.Inspector, app As Outlook.Application
         Dim itm As Object
@@ -188,6 +188,8 @@ Module AtchMgr_Code
         Dim okfName As Boolean
         Dim iter As Long
         'Dim bodyHTML As String, timeRef As Long
+
+        MsgBox("Made it into DetachAttachment")
 
         ' Bind script object, inspector,  and attachment selection
         sh = CreateObject("Shell.Application")
