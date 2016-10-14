@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui" onLoad="Ribbon_Load">
+  <ribbon>
+    <tabs>
+      <tab idMso="TabNewMailMessage">
+        <group id="GroupAtchMgrReattach"
+                label="Linked File(s)">
+          <button id="AtchMgrDoReattach" label="Reattach" size="large" imageMso="UpOneLevel" onAction="DoReattach_Click" 
+                  screentip="Reattach Linked File(s)"
+                  supertip="Launches a dialog to select linked files on local or mapped drives to be re-attached to the current message."/>
+        </group>
+      </tab>
+    </tabs>
+  </ribbon>
+</customUI>
+

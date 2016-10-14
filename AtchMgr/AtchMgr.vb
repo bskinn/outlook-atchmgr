@@ -1,8 +1,9 @@
 ﻿Public Class AtchMgr
 
     Protected Overrides Function CreateRibbonExtensibilityObject() As Microsoft.Office.Core.IRibbonExtensibility
-        Return New RibbonDetach()
+        Return New RibbonAtchMgr()
     End Function
+
 
     Private Sub ThisAddIn_Startup() Handles Me.Startup
         MsgBox("Loaded!")

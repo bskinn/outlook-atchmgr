@@ -35,7 +35,7 @@
     <PublishUrl>C:\Users\Lisa\Documents\Code\AtchHandling Publish\</PublishUrl>
     <InstallUrl />
     <TargetCulture>en</TargetCulture>
-    <ApplicationVersion>1.0.0.12</ApplicationVersion>
+    <ApplicationVersion>1.0.0.18</ApplicationVersion>
     <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateInterval>7</UpdateInterval>
@@ -214,22 +214,13 @@
     <Compile Include="AtchMgr.vb">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="RibbonDetach.vb" />
-    <Compile Include="RibBtnDetach.Designer.vb">
-      <DependentUpon>RibBtnDetach.vb</DependentUpon>
-    </Compile>
-    <Compile Include="RibBtnDetach.vb">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="RibbonAtchMgr.vb" />
     <Compile Include="UFAtchReatch.Designer.vb">
       <DependentUpon>UFAtchReatch.vb</DependentUpon>
     </Compile>
     <Compile Include="UFAtchReatch.vb">
       <SubType>Form</SubType>
     </Compile>
-    <EmbeddedResource Include="RibBtnDetach.resx">
-      <DependentUpon>RibBtnDetach.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UFAtchReatch.resx">
       <DependentUpon>UFAtchReatch.vb</DependentUpon>
     </EmbeddedResource>
@@ -255,7 +246,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="ClassDiagram1.cd" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
@@ -323,7 +313,14 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="RibbonDetach.xml" />
+    <EmbeddedResource Include="RibbonDetach.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="RibbonReattach.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,5 +1,5 @@
 ﻿<Runtime.InteropServices.ComVisible(True)> _
-Public Class RibbonDetach
+Public Class RibbonAtchMgr
     Implements Office.IRibbonExtensibility
 
     Private ribbon As Office.IRibbonUI
@@ -15,6 +15,10 @@ Public Class RibbonDetach
             ribbonXML = GetResourceText("AtchMgr.RibbonDetach.xml")
         End If
 
+        If ribbonID = "Microsoft.Outlook.Mail.Compose" Then
+            ribbonXML = GetResourceText("AtchMgr.RibbonReattach.xml")
+        End If
+
         Return ribbonXML
 
     End Function
@@ -28,6 +32,10 @@ Public Class RibbonDetach
     Public Sub DoDetach_Click(control As Office.IRibbonControl)
         MsgBox("Detach Button Callback Worked")
         AtchMgr_Code.DetachAttachment()
+    End Sub
+
+    Public Sub DoReattach_Click(control As Office.IRibbonControl)
+        MsgBox("Reattach Button Callback Worked")
     End Sub
 
 #End Region
