@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui" onLoad="Ribbon_Load">
+  <ribbon>
+    <contextualTabs>
+      <tabSet idMso="TabSetAttachments">
+        <tab idMso="TabAttachments">
+          <group id="GroupAtchMgrDetach"
+                 label="Manage">
+            <button id="AtchMgrDoDetach" label="Detach" size="large" imageMso="SaveSentItemsMenu" onAction="DoDetach_Click" 
+                    screentip="Detach Selected Attachment(s)"
+                    supertip="Attachments can be  detached to local disks or mapped drives. The detachment location will be annotated into the message."/>
+          </group>
+        </tab>
+      </tabSet>
+    </contextualTabs>
+  </ribbon>
+</customUI>
+
